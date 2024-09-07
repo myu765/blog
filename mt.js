@@ -1,6 +1,6 @@
 // The cookie name to use for storing the blog-side comment session cookie.
 var mtCookieName = "mt_blog_user";
-var mtCookieDomain = ".myu765.github.io";
+var mtCookieDomain = ".54.150.154.49";
 var mtCookiePath = "/";
 var mtCookieTimeout = 14400;
 
@@ -266,7 +266,7 @@ MT.util = function () {
     commentsTotalPages = Math.ceil(totalComments / commentsPerPage);
     pageNum = 1;
     
-    loadingIcon = "<img title='Loading...' src='https://myu765.github.io/mt-static/images/indicator.white.gif' alt='Loading' />";
+    loadingIcon = "<img title='Loading...' src='http://54.150.154.49/mt-static/images/indicator.white.gif' alt='Loading' />";
     
     commentContentDiv = M.getEl("comments-content");
     topNav = M.getEl("top-comment-nav");
@@ -437,7 +437,7 @@ MT.util = function () {
     _setCommentOffset();
     
     jsonUrl = [
-        "https://myu765.github.io/mt/mt-comments.cgi?__mode=comment_listing&direction=",
+        "http://54.150.154.49/mt/mt-comments.cgi?__mode=comment_listing&direction=",
         direction,
         "&entry_id=",
         entryID,
@@ -641,7 +641,7 @@ function mtFetchUser(cb) {
         var u = mtGetUser();
         var script = document.createElement('script');
         var ts = new Date().getTime();
-        script.src = 'https://myu765.github.io/mt/mt-comments.cgi?__mode=userinfo&blog_id=1&jsonp=' + cb + '&ts=' + ts + '&sid=' + u.sid;
+        script.src = 'http://54.150.154.49/mt/mt-comments.cgi?__mode=userinfo&blog_id=1&jsonp=' + cb + '&ts=' + ts + '&sid=' + u.sid;
         (document.getElementsByTagName('head'))[0].appendChild(script);
     }
 }
@@ -651,7 +651,7 @@ function mtVerifySession(cb) {
     var script = document.createElement('script');
     var ts = new Date().getTime();
     var u = mtGetUser();
-    script.src = 'https://myu765.github.io/mt/mt-comments.cgi?__mode=verify_session&blog_id=1&jsonp=' + cb + '&ts=' + ts + '&sid=' + u.sid;
+    script.src = 'http://54.150.154.49/mt/mt-comments.cgi?__mode=verify_session&blog_id=1&jsonp=' + cb + '&ts=' + ts + '&sid=' + u.sid;
     (document.getElementsByTagName('head'))[0].appendChild(script);
 }
 
@@ -777,13 +777,13 @@ mtAttachEvent('usersignin', mtUserOnLoad);
 function mtSignIn() {
     var doc_url = document.URL;
     doc_url = doc_url.replace(/#.+/, '');
-    var url = 'https://myu765.github.io/mt/mt-comments.cgi?__mode=login&blog_id=1';
+    var url = 'http://54.150.154.49/mt/mt-comments.cgi?__mode=login&blog_id=1';
     if (is_preview) {
         if ( document['comments_form'] ) {
             var entry_id = document['comments_form'].entry_id.value;
             url += '&entry_id=' + entry_id;
         } else {
-            url += '&return_url=https%3A%2F%2Fmyu765.github.io%2Fblog%2F';
+            url += '&return_url=http%3A%2F%2F54.150.154.49%2F';
         }
     } else {
         url += '&return_url=' + encodeURIComponent(doc_url);
@@ -822,13 +822,13 @@ function mtSignOut(entry_id) {
     mtClearUser();
     var doc_url = document.URL;
     doc_url = doc_url.replace(/#.+/, '');
-    var url = 'https://myu765.github.io/mt/mt-comments.cgi?__mode=handle_sign_in&static=0&logout=1&blog_id=1';
+    var url = 'http://54.150.154.49/mt/mt-comments.cgi?__mode=handle_sign_in&static=0&logout=1&blog_id=1';
     if (is_preview) {
         if ( document['comments_form'] ) {
             var entry_id = document['comments_form'].entry_id.value;
             url += '&entry_id=' + entry_id;
         } else {
-            url += '&return_url=https%3A%2F%2Fmyu765.github.io%2Fblog%2F';
+            url += '&return_url=http%3A%2F%2F54.150.154.49%2F';
         }
     } else {
         url += '&return_url=' + encodeURIComponent(doc_url);
